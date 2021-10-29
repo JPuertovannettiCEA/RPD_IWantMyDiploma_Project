@@ -58,7 +58,7 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
-    public void Move(float move, bool build, bool climb)
+    public void Move(float move, bool build, bool climb, float moveVertical, Transform buildCheck)
     {
         if(_grounded)
         {
@@ -78,7 +78,17 @@ public class CharacterController2D : MonoBehaviour
 
         if(_grounded && build)
         {
-            Instantiate(_ladder, new Vector2(_groundCheck.position.x, _groundCheck.position.y), Quaternion.identity);
+            Instantiate(_ladder, new Vector2(buildCheck.position.x, buildCheck.position.y), Quaternion.identity);
+        }
+        
+        if(_grounded && climb)
+        {
+            _rigidbody.gravityScale = 0f;
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, moveVertical * 10f);
+        }
+        else
+        {
+            _rigidbody.gravityScale = 1f;
         }
     }
 
