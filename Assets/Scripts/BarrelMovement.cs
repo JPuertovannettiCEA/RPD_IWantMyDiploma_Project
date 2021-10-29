@@ -64,5 +64,9 @@ public class BarrelMovement : MonoBehaviour
         {
             Flip();
         }
+        if(other.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -79,6 +79,7 @@ public class CharacterController2D : MonoBehaviour
         if(_grounded && build)
         {
             Instantiate(_ladder, new Vector2(buildCheck.position.x, buildCheck.position.y), Quaternion.identity);
+            buildCheck.gameObject.SetActive(false);
         }
         
         if(_grounded && climb)
