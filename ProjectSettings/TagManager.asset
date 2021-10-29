@@ -7,6 +7,7 @@ TagManager:
   - Ladder
   - Build
   - Platform
+  - EnemyCollider
   layers:
   - Default
   - TransparentFX
@@ -14,7 +15,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 
