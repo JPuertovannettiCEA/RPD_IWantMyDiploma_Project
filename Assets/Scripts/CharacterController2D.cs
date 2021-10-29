@@ -12,6 +12,9 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField]
     private Transform _groundCheck;
 
+    [SerializeField]
+    private GameObject _ladder;
+
     const float _groundedRadius = .2f;
     private bool _grounded;
     private Rigidbody2D _rigidbody;
@@ -55,7 +58,7 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
-    public void Move(float move)
+    public void Move(float move, bool build, bool climb)
     {
         if(_grounded)
         {
@@ -71,6 +74,11 @@ public class CharacterController2D : MonoBehaviour
             {
                 Flip();
             }
+        }
+
+        if(_grounded && build)
+        {
+            Instantiate(_ladder, new Vector2(_groundCheck.position.x, _groundCheck.position.y), Quaternion.identity);
         }
     }
 

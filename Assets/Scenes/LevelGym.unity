@@ -484,6 +484,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   _groundCheck: {fileID: 1372222251}
+  _ladder: {fileID: 8022132105387754444, guid: 46c47d799142e9c4ba6cc71c382c48d4, type: 3}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
