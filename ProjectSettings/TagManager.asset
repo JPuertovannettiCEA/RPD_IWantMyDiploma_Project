@@ -9,6 +9,8 @@ TagManager:
   - Platform
   - EnemyCollider
   - Out
+  - Enemy
+  - HealthBar
   layers:
   - Default
   - TransparentFX

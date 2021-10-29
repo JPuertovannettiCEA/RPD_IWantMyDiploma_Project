@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -21,9 +22,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float _runSpeed = 40f;
 
+    [SerializeField]
+    private Slider _healthRef;
+
+    private float _playerHealth = 100f;
+
+    private void Awake()
+    {
+        _healthRef = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Slider>();
+    }
+
     // Update is called once per frame
     void Update()
     {
+        _healthRef.value = _playerHealth;
         horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
         if(Input.GetKeyDown(KeyCode.Space) && _canBuild)
         {
@@ -83,6 +95,12 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log($"ESTAS COLLISIONANDO CON UN A PLATAFORMA");
             transform.position = new Vector3(transform.position.x, transform.position.y + 0.8f, transform.position.z);
             _onPlatform = true;
+        }
+
+        if(other.gameObject.CompareTag("Enemy"))
+        {
+            _playerHealth -= 10f;
+            _healthRef.value = _playerHealth;
         }
     }
 }
