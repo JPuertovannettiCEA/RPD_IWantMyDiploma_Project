@@ -151,6 +151,7 @@ MonoBehaviour:
   controller: {fileID: 948844731790883662}
   _buildCheck: {fileID: 0}
   _runSpeed: 40
+  _healthRef: {fileID: 0}
 --- !u!50 &948844731790883660
 Rigidbody2D:
   serializedVersion: 4

@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Platform") && !_onPlatform)
         {
-            Debug.Log($"ESTAS COLLISIONANDO CON UN A PLATAFORMA");
+            //Debug.Log($"ESTAS COLLISIONANDO CON UN A PLATAFORMA");
             transform.position = new Vector3(transform.position.x, transform.position.y + 0.8f, transform.position.z);
             _onPlatform = true;
         }
