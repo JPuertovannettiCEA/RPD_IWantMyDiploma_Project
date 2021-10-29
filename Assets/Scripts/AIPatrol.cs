@@ -57,4 +57,12 @@ public class AIPatrol : MonoBehaviour
         walkSpeed *= -1;
         mustPatrol = true;
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            Flip();
+        }
+    }
 }
