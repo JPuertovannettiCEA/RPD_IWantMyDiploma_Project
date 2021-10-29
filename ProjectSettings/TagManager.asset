@@ -14,6 +14,7 @@ TagManager:
   - Diploma
   - Barrel
   - Pillow
+  - Exit
   layers:
   - Default
   - TransparentFX

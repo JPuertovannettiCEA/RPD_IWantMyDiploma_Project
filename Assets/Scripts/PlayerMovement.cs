@@ -81,6 +81,11 @@ public class PlayerMovement : MonoBehaviour
             WinLoseCondition._win = true;
             SceneManager.LoadScene(2);  
         }
+        if(other.CompareTag("Exit"))
+        {
+            WinLoseCondition._win = false;
+            SceneManager.LoadScene(2);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
