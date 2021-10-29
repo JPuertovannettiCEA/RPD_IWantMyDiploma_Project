@@ -36,9 +36,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_playerHealth >= 0f)
+        if(_playerHealth <= 0f)
         {
-            //SceneManager.LoadScene(2);   
+            WinLoseCondition._win = false;
+            SceneManager.LoadScene(2);   
         }
         _healthRef.value = _playerHealth;
         horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
@@ -77,7 +78,8 @@ public class PlayerMovement : MonoBehaviour
         }
         if(other.CompareTag("Diploma"))
         {
-            //SceneManager.LoadScene(2);
+            WinLoseCondition._win = true;
+            SceneManager.LoadScene(2);  
         }
     }
 
