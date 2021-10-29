@@ -11,6 +11,9 @@ TagManager:
   - Out
   - Enemy
   - HealthBar
+  - Diploma
+  - Barrel
+  - Pillow
   layers:
   - Default
   - TransparentFX

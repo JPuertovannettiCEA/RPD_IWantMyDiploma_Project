@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -35,6 +36,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(_playerHealth >= 0f)
+        {
+            //SceneManager.LoadScene(2);   
+        }
         _healthRef.value = _playerHealth;
         horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
         if(Input.GetKeyDown(KeyCode.Space) && _canBuild)
@@ -70,6 +75,10 @@ public class PlayerMovement : MonoBehaviour
             _canBuild = true;
             _buildCheck = other.transform;
         }
+        if(other.CompareTag("Diploma"))
+        {
+            //SceneManager.LoadScene(2);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -85,7 +94,6 @@ public class PlayerMovement : MonoBehaviour
             _canBuild = false;
             _buildCheck = null;
         }
-        
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -100,6 +108,18 @@ public class PlayerMovement : MonoBehaviour
         if(other.gameObject.CompareTag("Enemy"))
         {
             _playerHealth -= 10f;
+            _healthRef.value = _playerHealth;
+        }
+
+        if(other.gameObject.CompareTag("Barrel"))
+        {
+            _playerHealth -= 10f;
+            _healthRef.value = _playerHealth;
+        }
+
+        if(other.gameObject.CompareTag("Pillow"))
+        {
+            _playerHealth += 10f;
             _healthRef.value = _playerHealth;
         }
     }
