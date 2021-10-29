@@ -12,6 +12,9 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField]
     private GameObject _credits;
+    
+    [SerializeField]
+    private GameObject _instructions;
 
     [SerializeField]
     private AudioSource _optionsSelectionHover;
@@ -53,7 +56,8 @@ public class MainMenu : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 _optionsSelectionClick.Play();
-                SceneManager.LoadScene(1);
+                _instructions.SetActive(true);
+                gameObject.SetActive(false);
             }
         }
 
