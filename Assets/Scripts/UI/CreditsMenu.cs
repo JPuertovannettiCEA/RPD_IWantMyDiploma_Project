@@ -12,7 +12,7 @@ public class CreditsMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             _optionsSelectionClick.Play();
             _mainMenu.SetActive(true);
